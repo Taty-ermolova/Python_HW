@@ -10,7 +10,7 @@ username_input.send_keys("tomsmith")
 
 password_input = driver.find_element(By.XPATH,'//input[@id="password"]')
 password_input.send_keys("SuperSecretPassword!")
-sleep(5)
+sleep(6)
 
 button = driver.find_element(By.CSS_SELECTOR, "button.radius")
 button.click()

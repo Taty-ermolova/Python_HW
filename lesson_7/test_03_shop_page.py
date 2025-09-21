@@ -6,7 +6,6 @@ from lesson_7.shop_page_cart import ShopPageCart
 from lesson_7.shop_page_fill_fields import ShopPageFillFields
 from lesson_7.shop_page_check_data import ShopPageCheckData
 
-
 @pytest.fixture
 def driver():
     options = webdriver.FirefoxOptions()

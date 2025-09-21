@@ -42,10 +42,10 @@ class FormPage:
 
     def check_zip_code_error(self):
         zip_code = self.driver.find_element(By.ID, "zip-code").value_of_css_property("background-color")
-        assert zip_code == "rgba(248, 215, 218, 1)"
+        return zip_code
 
     def check_fields_success(self):
         fields = ["first-name", "last-name", "address", "city", "country", "e-mail", "phone", "job-position", "company"]
         for field_id in fields:
             field = self.driver.find_element(By.ID, field_id).value_of_css_property("background-color")
-            assert field == "rgba(209, 231, 221, 1)"
+        return field

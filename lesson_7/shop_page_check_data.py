@@ -6,4 +6,4 @@ class ShopPageCheckData:
 
     def check_data(self):
         total_price = self.driver.find_element(By.CLASS_NAME, "summary_total_label").text
-        assert total_price == "Total: $58.29"
+        return total_price

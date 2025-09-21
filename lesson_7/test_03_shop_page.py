@@ -15,16 +15,21 @@ def driver():
     driver.quit()
 
 def test_shop(driver):
-    shop_page = ShopPageAuth(driver)
-    shop_page.open()
-    shop_page.authorization()
-    shop_page = ShopPageMain(driver)
-    shop_page.add_to_cart()
-    shop_page.go_to_cart()
-    shop_page = ShopPageCart(driver)
-    shop_page.checkout_button()
-    shop_page = ShopPageFillFields(driver)
-    shop_page.fill_fields()
-    shop_page.continue_button()
-    shop_page = ShopPageCheckData(driver)
-    shop_page.check_data()
+    auth_page = ShopPageAuth(driver)
+    auth_page.open()
+    auth_page.authorization()
+
+    main_page = ShopPageMain(driver)
+    main_page.add_to_cart()
+    main_page.go_to_cart()
+
+    cart_page = ShopPageCart(driver)
+    cart_page.checkout_button()
+
+    fill_form_page = ShopPageFillFields(driver)
+    fill_form_page.fill_fields()
+    fill_form_page.continue_button()
+
+    check_page = ShopPageCheckData(driver)
+    result_total_price = check_page.check_data()
+    assert result_total_price == "Total: $58.29"

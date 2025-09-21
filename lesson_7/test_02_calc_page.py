@@ -15,4 +15,5 @@ def test_calc(driver):
     calc_page.open()
     calc_page.input_field()
     calc_page.click_bottons()
-    calc_page.wait_result()
+    count_result = calc_page.wait_result()
+    assert count_result == '15'

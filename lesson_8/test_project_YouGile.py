@@ -34,7 +34,6 @@ def test_get_project_with_id_negative():
 
     assert response_get_project_with_id.status_code == '404'
 
-
 def test_edit_project_positive():
     edit_project = ProjectYouGile(url='https://ru.yougile.com/api-v2/',
                                  mail='taty.ermolova@gmail.com', password='Taty15362478!', company="b64c5019-ccfa-48fc-9071-5f6b81bdf126")

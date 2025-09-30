@@ -1,6 +1,5 @@
 import requests
 
-
 class ProjectYouGile:
 
     def __init__(self, url, mail, password, company) -> None:
@@ -16,7 +15,7 @@ class ProjectYouGile:
         }
         resp = requests.post(self.url + 'auth/keys', json=creds)
         response_data = resp.json()
-        print(response_data)
+
         # Извлекаем токен из ответа
         assert response_data.get('key')
         return response_data.get('key')

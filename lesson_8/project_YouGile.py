@@ -18,11 +18,8 @@ class ProjectYouGile:
         response_data = resp.json()
         print(response_data)
         # Извлекаем токен из ответа
-        if 'key' in response_data:
-            return response_data['key']
-        else:
-            raise ValueError("Токен не найден в ответе API")
-
+        assert response_data.get('key')
+        return response_data.get('key')
 
     # Получить список проектов компании
     def get_project_list(self):

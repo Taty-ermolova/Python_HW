@@ -41,7 +41,8 @@ class ProjectYouGile:
             "users": user
         }
         resp = requests.post(self.url + 'projects', headers=headers, json=project)
-        return resp
+        return resp.status_code
+        return resp.json()["message"]
 
     # Получить проект по id
     def get_project_with_id(self, project_id):
@@ -51,7 +52,9 @@ class ProjectYouGile:
             'Content-Type': 'application/json'
         }
         resp = requests.get(self.url + f'projects/{project_id}', headers=headers)
-        return resp
+        return resp.status_code
+        return resp.json()["title"]
+        return resp.json()["users"]
 
     # Изменить проект
     def edit_project(self, project_id, new_title, new_user):
@@ -65,4 +68,7 @@ class ProjectYouGile:
             "users": new_user
         }
         resp = requests.put(self.url + f'projects/{project_id}', headers=headers, json=project)
-        return resp
+        return resp.status_code
+        return resp.json()["title"]
+        return resp.json()["message"]
+        return resp.json()["error"]
